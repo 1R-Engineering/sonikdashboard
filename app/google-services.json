@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "587100333579",
+    "firebase_url": "https://sonikiot.firebaseio.com",
+    "project_id": "sonikiot",
+    "storage_bucket": "sonikiot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587100333579:android:d96c21eacf0499cd64890e",
+        "android_client_info": {
+          "package_name": "com.losdol.dashboardonlysonik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587100333579-7ng6foheoalbm19tb98ke9uunf2kuqcr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.losdol.dashboardonlysonik",
+            "certificate_hash": "92dc0132fc9645f6f5674966d4c3f3243e9f7014"
+          }
+        },
+        {
+          "client_id": "587100333579-m18d8a8pdlvssas82tsmge7ds7259j13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmWhiTpHpZfjlnNZdwG77yXEycHHpFCKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587100333579-m18d8a8pdlvssas82tsmge7ds7259j13.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

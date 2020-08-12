@@ -13,31 +13,79 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/roboto_thin"
-        android:text="Wednesday, 4 April"
+        android:text="@string/stringTanggal"
         android:textColor="@color/memekHitam"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022"></TextView>
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcomeUser"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/coolvetica_rg"
-        android:text="Welcome, Virna"
+        android:text="@string/stringUsername"
         android:textColor="@color/memekHitam"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tanggal" />
 
-    <View
-        android:layout_width="382dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="2dp"
-        android:background="#FF6F6F6F"
+    <TextView
+        android:id="@+id/watlevelTV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="260dp"
+        android:background="@drawable/box1"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="@string/watlevval"
+        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tdsvalueTV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/box1"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="@string/tdsval"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pHTV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/box1"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="@string/pHval"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/suhuTV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="260dp"
+        android:background="@drawable/box1"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="@string/suhuVal"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
