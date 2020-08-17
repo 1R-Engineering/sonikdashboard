@@ -3,9 +3,4 @@
     <string name="stringTanggal">%1$s</string>
     <string name="stringUsername">Welcome, %1$s</string>
 
-    <string name="pHval">pH Value\n<big>%1$d</big></string>
-    <string name="tdsval">TDS Value\n<big>%1$d</big></string>
-    <string name="suhuVal">Suhu Air\n<big>%1$d</big></string>
-    <string name="watlevval">Level Air\n<big>%1$d</big></string>
-
 </resources>
