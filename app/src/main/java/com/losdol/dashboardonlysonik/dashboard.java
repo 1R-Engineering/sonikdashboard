@@ -45,7 +45,17 @@ public class dashboard extends AppCompatActivity {
 
     //Inisialisasi LineChart
     LineChart plant_growth_index_Graph;
+    int i = 0;
     ArrayList<Entry> values = new ArrayList<>();
+
+    public static String fmt(double d)
+    {
+        if(d == (long) d)
+            return String.format("%d",(long)d);
+        else
+            return String.format("%s",d);
+    }
+
     void showUser(String username){
         TextView usernameTextView = (TextView) findViewById(R.id.welcomeUser);
         TextView dateTextView = (TextView) findViewById(R.id.tanggal);
@@ -60,10 +70,10 @@ public class dashboard extends AppCompatActivity {
         TextView waterLevelText = (TextView) findViewById(R.id.nilai_LevelAir);
         TextView suhuAirText = (TextView) findViewById(R.id.nilai_Suhu_Air);
 
-        suhuAirText.setText(Float.toString(SuhuAir));
-        phText.setText(Float.toString(pH));
-        tdsText.setText(Float.toString(TDS));
-        waterLevelText.setText(Float.toString(LevelAir));
+        suhuAirText.setText(String.format("%.0f", SuhuAir));
+        phText.setText(String.format("%.2f", pH));
+        tdsText.setText(String.format("%.0f",TDS));
+        waterLevelText.setText(String.format("%.0f", LevelAir));
     }
 
     @Override
@@ -78,9 +88,11 @@ public class dashboard extends AppCompatActivity {
         plant_growth_index_Graph.setBackgroundColor(Color.alpha(0));
 
 
-        for(int i = 0; i < 21; i++){
-            values.add(new Entry(i, new Random().nextInt((100 - 0) + 1) + 0));
-        }
+
+//        for(int i = 0; i < 21; i++){
+//            values.add(new Entry(i, new Random().nextInt((100 - 0) + 1) + 0));
+//        }
+
         TextView pgiTextView = (TextView) findViewById(R.id.nilai_pgi);
 
 
@@ -89,32 +101,6 @@ public class dashboard extends AppCompatActivity {
         plant_growth_index_Graph.getAxisRight().setEnabled(false);
         plant_growth_index_Graph.getXAxis().setDrawAxisLine(false);
         plant_growth_index_Graph.getLegend().setEnabled(false);
-
-        LineDataSet phData;
-        if (plant_growth_index_Graph.getData() != null &&
-                plant_growth_index_Graph.getData().getDataSetCount() > 0) {
-            phData = (LineDataSet) plant_growth_index_Graph.getData().getDataSetByIndex(0);
-            phData.setValues(values);
-            plant_growth_index_Graph.getData().notifyDataChanged();
-            plant_growth_index_Graph.notifyDataSetChanged();
-        } else {
-            phData = new LineDataSet(values, "Sample Data");
-            phData.setDrawValues(false);
-            phData.setDrawIcons(false);
-            phData.setColor(Color.DKGRAY);;
-            phData.setLineWidth(1f);
-            phData.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-            phData.setCircleRadius(3f);
-            phData.setDrawCircleHole(false);
-            phData.setDrawFilled(false);
-            phData.setFormLineWidth(1f);
-            phData.setFillColor(Color.DKGRAY);
-
-            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-            dataSets.add(phData);
-            LineData data = new LineData(dataSets);
-            plant_growth_index_Graph.setData(data);
-        }
 
         DocumentReference docRef = FirebaseFirestore.getInstance().collection("device-configs").document("sonik32");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -129,11 +115,40 @@ public class dashboard extends AppCompatActivity {
                                 data.getSensors().get("TDS"),
                                 data.getSensors().get("Level Air"),
                                 data.getSensors().get("Suhu Air"));
-
+                        Date waktu = new deviceData().timestamp.toDate();
                         Log.d("Firestore", "TDS: " + data.getSensors().get("TDS"));
                         Log.d("Firestore", "pH: " + data.getSensors().get("pH"));
                         Log.d("Firestore", "Water Level: " + data.getSensors().get("Level Air"));
                         Log.d("Firestore", "Water Temp: " + data.getSensors().get("Suhu Air"));
+                        values.add(new Entry(i, data.getSensors().get("TDS")));
+                        LineDataSet phData;
+                        if (plant_growth_index_Graph.getData() != null &&
+                                plant_growth_index_Graph.getData().getDataSetCount() > 0) {
+                            phData = (LineDataSet) plant_growth_index_Graph.getData().getDataSetByIndex(0);
+                            phData.setValues(values);
+                            plant_growth_index_Graph.getData().notifyDataChanged();
+                            plant_growth_index_Graph.notifyDataSetChanged();
+                            plant_growth_index_Graph.invalidate();
+                        } else {
+                            phData = new LineDataSet(values, "Sample Data");
+                            phData.setDrawValues(false);
+                            phData.setDrawIcons(false);
+                            phData.setColor(Color.DKGRAY);;
+                            phData.setLineWidth(1f);
+                            phData.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+                            phData.setCircleRadius(3f);
+                            phData.setDrawCircleHole(false);
+                            phData.setDrawFilled(false);
+                            phData.setFormLineWidth(1f);
+                            phData.setFillColor(Color.DKGRAY);
+
+                            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+                            dataSets.add(phData);
+                            LineData data1 = new LineData(dataSets);
+                            plant_growth_index_Graph.setData(data1);
+                            plant_growth_index_Graph.invalidate();
+                        }
+                        i++;
 
                     } else {
                         Log.d("Firestore", "No such document");
@@ -156,11 +171,40 @@ public class dashboard extends AppCompatActivity {
                 if(snapshot != null && snapshot.exists()){
                     //do something Penting nak iki
                     deviceData data = snapshot.toObject(deviceData.class);
-                    showUser(data.getUsername());
                     showSensorsData(data.getSensors().get("pH"),
                             data.getSensors().get("TDS"),
                             data.getSensors().get("Level Air"),
                             data.getSensors().get("Suhu Air"));
+
+                    values.add(new Entry(i, data.getSensors().get("TDS")));
+                    LineDataSet phData;
+                    if (plant_growth_index_Graph.getData() != null &&
+                            plant_growth_index_Graph.getData().getDataSetCount() > 0) {
+                        phData = (LineDataSet) plant_growth_index_Graph.getData().getDataSetByIndex(0);
+                        phData.setValues(values);
+                        plant_growth_index_Graph.getData().notifyDataChanged();
+                        plant_growth_index_Graph.notifyDataSetChanged();
+                        plant_growth_index_Graph.invalidate();
+                    } else {
+                        phData = new LineDataSet(values, "Sample Data");
+                        phData.setDrawValues(false);
+                        phData.setDrawIcons(false);
+                        phData.setColor(Color.DKGRAY);;
+                        phData.setLineWidth(1f);
+                        phData.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+                        phData.setCircleRadius(3f);
+                        phData.setDrawCircleHole(false);
+                        phData.setDrawFilled(false);
+                        phData.setFormLineWidth(1f);
+                        phData.setFillColor(Color.DKGRAY);
+
+                        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+                        dataSets.add(phData);
+                        LineData data1 = new LineData(dataSets);
+                        plant_growth_index_Graph.setData(data1);
+                        plant_growth_index_Graph.invalidate();
+                    }
+                    i++;
                 }
                 else{
                     Log.d("Firebase", "Null");

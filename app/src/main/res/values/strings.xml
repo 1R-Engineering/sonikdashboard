@@ -2,5 +2,6 @@
     <string name="app_name">Sonik Test</string>
     <string name="stringTanggal">%1$s</string>
     <string name="stringUsername">Welcome, %1$s</string>
+    <string name="levelPersen">%1$f%%</string>
 
 </resources>
