@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/main">
-        <activity android:name=".graph_all"></activity>
+        <activity android:name=".wifi_credit_login"></activity>
+        <activity android:name=".bluetooth_login" />
+        <activity android:name=".graph_all" />
         <activity android:name=".dashboard" />
         <activity
             android:name=".splashScreen"

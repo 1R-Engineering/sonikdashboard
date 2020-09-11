@@ -87,8 +87,6 @@ public class dashboard extends AppCompatActivity {
         plant_growth_index_Graph.setDrawGridBackground(false);
         plant_growth_index_Graph.setBackgroundColor(Color.alpha(0));
 
-
-
 //        for(int i = 0; i < 21; i++){
 //            values.add(new Entry(i, new Random().nextInt((100 - 0) + 1) + 0));
 //        }
