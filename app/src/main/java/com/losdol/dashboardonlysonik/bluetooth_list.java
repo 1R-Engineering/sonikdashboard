@@ -41,7 +41,7 @@ public class bluetooth_list extends AppCompatActivity {
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(bluetooth_list.this, dashboard.class));
+                startActivity(new Intent(bluetooth_list.this, pick_plant.class));
                 finish();
             }
         });

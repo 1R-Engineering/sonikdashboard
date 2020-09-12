@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:exitFadeDuration="@android:integer/config_mediumAnimTime">
+    <item android:state_pressed="true" android:drawable="@android:color/white" />
+    <item android:state_selected="true" android:drawable="@android:color/white" />
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomRightRadius="30dp"
+                android:bottomLeftRadius= "30dp"
+                android:topLeftRadius=    "30dp"
+                android:topRightRadius=   "30dp"
+                />
+            <stroke android:color="@color/memekHitam"
+                android:width="2dp"/>
+        </shape>
+    </item>
+</selector>

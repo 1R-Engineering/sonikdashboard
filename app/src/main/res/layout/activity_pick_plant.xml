@@ -23,7 +23,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="84dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +42,49 @@
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/pick_plant"
-            android:layout_width="250dp"
-            android:layout_height="40dp"/>
+
+            style="@style/Widget.AppCompat.Spinner"
+            android:fontFamily="@font/bahnschrift"
+            android:textColor="@color/memekHitam"
+            android:textColorHint="@color/memekHitam"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner_custom" />
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_round"
+            android:elevation="5dp"
+            android:fontFamily="@font/bahnschrift"
+            android:gravity="left"
+            android:hint="Total"
+            android:padding="10dip"
+            android:paddingStart="20dip"
+            android:textColor="@color/memekHitam"
+            android:textColorHint="@color/memekHitam"
+            tools:layout_editor_absoluteX="95dp"
+            tools:layout_editor_absoluteY="344dp" />
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_round"
+            android:elevation="5dp"
+            android:fontFamily="@font/bahnschrift"
+            android:gravity="left"
+            android:hint="Day"
+            android:padding="10dip"
+            android:paddingStart="20dip"
+            android:textColor="@color/memekHitam"
+            android:textColorHint="@color/memekHitam"
+            tools:layout_editor_absoluteX="95dp"
+            tools:layout_editor_absoluteY="344dp" />
 
 
     </LinearLayout>

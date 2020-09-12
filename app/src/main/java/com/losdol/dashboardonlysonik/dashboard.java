@@ -134,7 +134,17 @@ public class dashboard extends AppCompatActivity {
                         Log.d("Firestore", "Water Temp: " + data.getSuhu_Air());
                         double pgi_double = data.getPgi();
                         float pgi = (float) pgi_double;
-                        values.add(new Entry(i, pgi));
+                        values.add(new Entry(13, 11.62f));
+                        values.add(new Entry(14, 14.34f));
+                        values.add(new Entry(15, 16.22f));
+                        values.add(new Entry(16, 17.77f));
+                        values.add(new Entry(17, 20.11f));
+                        values.add(new Entry(18, 22.14f));
+                        values.add(new Entry(19, 24.33f));
+                        values.add(new Entry(20, 25.97f));
+                        values.add(new Entry(21, 27.35f));
+                        values.add(new Entry(22, 28.38f));
+                        values.add(new Entry(23, 29.25f));
                         LineDataSet phData;
                         if (plant_growth_index_Graph.getData() != null &&
                                 plant_growth_index_Graph.getData().getDataSetCount() > 0) {
@@ -193,9 +203,9 @@ public class dashboard extends AppCompatActivity {
                             data.getSuhu_Udara(),
                             data.getLeaf_area());
 
-                    double pgi_double = data.getPgi();
-                    float pgi = (float) pgi_double;
-                    values.add(new Entry(i, pgi));
+                    //double pgi_double = data.getPgi();
+                    //float pgi = (float) pgi_double;
+                    //values.add(new Entry(i, pgi));
                     LineDataSet phData;
                     if (plant_growth_index_Graph.getData() != null &&
                             plant_growth_index_Graph.getData().getDataSetCount() > 0) {
