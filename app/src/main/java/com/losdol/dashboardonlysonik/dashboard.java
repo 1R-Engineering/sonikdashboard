@@ -17,6 +17,7 @@ import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,6 +39,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import android.graphics.Matrix;
+import android.widget.ImageView;
 
 
 public class dashboard extends AppCompatActivity {
@@ -86,6 +89,9 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        ImageView img = findViewById(R.id.gambar_tumbuhan);
+        img.setImageResource(R.drawable.testimg);
 
         //Setup for line chart
         plant_growth_index_Graph = findViewById(R.id.PGI_Chart);

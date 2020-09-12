@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.losdol.dashboardonlysonik">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/main">
-        <activity android:name=".ready_to_setup_screen"></activity>
+        <activity android:name=".pick_plant"></activity>
+        <activity android:name=".bluetooth_list" />
+        <activity android:name=".name_device_login" />
+        <activity android:name=".ready_to_setup_screen" />
         <activity android:name=".wifi_credit_login" />
         <activity android:name=".enter_name_login" />
         <activity android:name=".graph_all" />

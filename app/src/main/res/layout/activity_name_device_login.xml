@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
-    tools:context=".ready_to_setup_screen">
+    tools:context=".name_device_login">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,12 +19,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <LinearLayout
+        android:layout_marginTop="130dp"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -33,17 +32,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bahnschrift"
-            android:text="Let's setup your device"
+            android:text="Name your device"
             android:textAlignment="center"
             android:textColor="@color/memekHitam"
             android:textSize="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+        <EditText
+            android:hint="Name"
+            android:gravity="left"
+            android:textColorHint="@color/memekHitam"
+            android:fontFamily="@font/bahnschrift"
+            android:textColor="@color/memekHitam"
+            android:padding="10dip"
+            android:paddingStart="20dip"
+            android:layout_marginTop="10dp"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/edittext_round"
+            android:elevation="5dp"
+            tools:layout_editor_absoluteX="95dp"
+            tools:layout_editor_absoluteY="344dp" />
+
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/enter_ready_setup"
+        android:id="@+id/enter_name_device"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

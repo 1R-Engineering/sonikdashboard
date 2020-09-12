@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class wifi_credit_login extends AppCompatActivity {
+public class name_device_login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wifi_credit_login);
-        Button enterButton = findViewById(R.id.enter_wifi_button);
+        setContentView(R.layout.activity_name_device_login);
+        Button enterButton = findViewById(R.id.enter_name_device);
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(wifi_credit_login.this, ready_to_setup_screen.class));
+                startActivity(new Intent(name_device_login.this, bluetooth_list.class));
                 finish();
             }
         });
