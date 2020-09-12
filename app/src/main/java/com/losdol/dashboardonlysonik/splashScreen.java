@@ -15,7 +15,7 @@ public class splashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(splashScreen.this,bluetooth_login.class));
+                startActivity(new Intent(splashScreen.this, enter_name_login.class));
             }
         },2000);
     }

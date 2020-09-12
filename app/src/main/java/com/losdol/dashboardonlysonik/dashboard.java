@@ -64,16 +64,22 @@ public class dashboard extends AppCompatActivity {
         dateTextView.setText(getString(R.string.stringTanggal, new SimpleDateFormat("EEEE, d LLLL", Locale.getDefault()).format(new Date())));
     }
 
-    void showSensorsData(float pH, float TDS, float LevelAir, float SuhuAir){
+    void showSensorsData(float pH, float TDS, float LevelAir, float SuhuAir, float kelembaban, float suhuUdara, float pgi){
         TextView tdsText = (TextView) findViewById(R.id.nilai_TDS);
         TextView phText = (TextView) findViewById(R.id.nilai_pH);
         TextView waterLevelText = (TextView) findViewById(R.id.nilai_LevelAir);
         TextView suhuAirText = (TextView) findViewById(R.id.nilai_Suhu_Air);
+        TextView kelembabanText = (TextView) findViewById(R.id.nilai_kelembaban);
+        TextView suhuUdaraText = (TextView) findViewById(R.id.nilai_Suhu_Udara);
+        TextView pgiText = (TextView) findViewById(R.id.nilai_pgi);
 
         suhuAirText.setText(String.format("%.0f", SuhuAir));
         phText.setText(String.format("%.2f", pH));
         tdsText.setText(String.format("%.0f",TDS));
         waterLevelText.setText(String.format("%.0f", LevelAir));
+        kelembabanText.setText(String.format("%.0f",kelembaban));
+        suhuUdaraText.setText(String.format("%.0f",suhuUdara));
+        pgiText.setText(String.format("%.0f", pgi));
     }
 
     @Override
@@ -109,16 +115,20 @@ public class dashboard extends AppCompatActivity {
                     if (document != null) {
                         deviceData data = task.getResult().toObject(deviceData.class);
                         showUser(data.getUsername());
-                        showSensorsData(data.getSensors().get("pH"),
-                                data.getSensors().get("TDS"),
-                                data.getSensors().get("Level Air"),
-                                data.getSensors().get("Suhu Air"));
-                        Date waktu = new deviceData().timestamp.toDate();
-                        Log.d("Firestore", "TDS: " + data.getSensors().get("TDS"));
-                        Log.d("Firestore", "pH: " + data.getSensors().get("pH"));
-                        Log.d("Firestore", "Water Level: " + data.getSensors().get("Level Air"));
-                        Log.d("Firestore", "Water Temp: " + data.getSensors().get("Suhu Air"));
-                        values.add(new Entry(i, data.getSensors().get("TDS")));
+                        showSensorsData(data.getpH(),
+                                data.getTDS(),
+                                data.getLevel_Air(),
+                                data.getSuhu_Air(),
+                                data.getKelembaban(),
+                                data.getSuhu_Udara(),
+                                data.getLeaf_area());
+                        Log.d("Firestore", "TDS: " + data.getTDS());
+                        Log.d("Firestore", "pH: " + data.getpH());
+                        Log.d("Firestore", "Water Level: " + data.getLevel_Air());
+                        Log.d("Firestore", "Water Temp: " + data.getSuhu_Air());
+                        double pgi_double = data.getPgi();
+                        float pgi = (float) pgi_double;
+                        values.add(new Entry(i, pgi));
                         LineDataSet phData;
                         if (plant_growth_index_Graph.getData() != null &&
                                 plant_growth_index_Graph.getData().getDataSetCount() > 0) {
@@ -169,12 +179,17 @@ public class dashboard extends AppCompatActivity {
                 if(snapshot != null && snapshot.exists()){
                     //do something Penting nak iki
                     deviceData data = snapshot.toObject(deviceData.class);
-                    showSensorsData(data.getSensors().get("pH"),
-                            data.getSensors().get("TDS"),
-                            data.getSensors().get("Level Air"),
-                            data.getSensors().get("Suhu Air"));
+                    showSensorsData(data.getpH(),
+                            data.getTDS(),
+                            data.getLevel_Air(),
+                            data.getSuhu_Air(),
+                            data.getKelembaban(),
+                            data.getSuhu_Udara(),
+                            data.getLeaf_area());
 
-                    values.add(new Entry(i, data.getSensors().get("TDS")));
+                    double pgi_double = data.getPgi();
+                    float pgi = (float) pgi_double;
+                    values.add(new Entry(i, pgi));
                     LineDataSet phData;
                     if (plant_growth_index_Graph.getData() != null &&
                             plant_growth_index_Graph.getData().getDataSetCount() > 0) {
@@ -207,7 +222,6 @@ public class dashboard extends AppCompatActivity {
                 else{
                     Log.d("Firebase", "Null");
                 }
-
             }
         });
     }

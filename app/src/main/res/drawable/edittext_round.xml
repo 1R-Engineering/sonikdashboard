@@ -4,7 +4,6 @@
     android:shape="rectangle"
     android:padding="10dp">
 
-    <solid android:color="#FFFFFF" />
     <stroke android:color="@color/memekHitam"
         android:width="2dp"/>
     <corners

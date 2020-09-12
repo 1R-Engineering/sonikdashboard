@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class bluetooth_login extends AppCompatActivity {
+public class ready_to_setup_screen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bluetooth_login);
+        setContentView(R.layout.activity_ready_to_setup_screen);
     }
 }

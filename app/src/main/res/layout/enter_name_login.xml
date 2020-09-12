@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bahnschrift"
-            android:text="Enter Wifi Credential"
+            android:text="Enter Your Name"
             android:textAlignment="center"
             android:textColor="@color/memekHitam"
             android:textSize="24dp"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
-            android:hint="SSID"
+            android:hint="Name"
             android:gravity="left"
             android:textColorHint="@color/memekHitam"
             android:fontFamily="@font/bahnschrift"
@@ -56,28 +56,11 @@
             tools:layout_editor_absoluteX="95dp"
             tools:layout_editor_absoluteY="344dp" />
 
-        <EditText
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:gravity="left"
-            android:textColorHint="@color/memekHitam"
-            android:fontFamily="@font/bahnschrift"
-            android:textColor="@color/memekHitam"
-            android:padding="10dip"
-            android:paddingStart="20dip"
-            android:layout_marginTop="10dp"
-            android:layout_width="220dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/edittext_round"
-            android:elevation="5dp"
-            tools:layout_editor_absoluteX="78dp"
-            tools:layout_editor_absoluteY="389dp" />
     </LinearLayout>
 
 
     <Button
-        android:id="@+id/enter_wifi_button"
+        android:id="@+id/enter_name_button"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
